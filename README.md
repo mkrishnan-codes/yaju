@@ -1,6 +1,6 @@
-# Next.js Cloudflare static sample
+# Next.js Pages sample
 
-A minimal Next.js page configured as a static export. No server runtime or UI libraries are needed.
+A minimal Next.js page configured as a static export for Cloudflare Pages.
 
 ## Local development
 
@@ -9,18 +9,14 @@ npm install
 npm run dev
 ```
 
-Open http://localhost:3000. To generate the static site, run `npm run build`; the files are written to `out/`.
+Open http://localhost:3000. Run `npm run build` to generate the static site in `out/`.
 
-## Test on Cloudflare locally
+## Deploy to Cloudflare Pages
 
-Build first with `npm run build`, then choose either target:
+Connect the GitHub repository to Cloudflare Pages and use:
 
-- **Workers static assets:** `npm run worker:dev` (Wrangler serves `out/` using `wrangler.jsonc`).
-- **Pages:** `npm run pages:dev` (Wrangler Pages serves `out/`).
+- Root directory: `/` (leave it blank if the dashboard treats blank as the repository root)
+- Build command: `npm run build`
+- Build output directory: `out`
 
-## Deploy
-
-Authenticate Wrangler with `npx wrangler login`.
-
-- **Workers:** `npm run worker:deploy`.
-- **Pages:** create a Pages project named `next-static-sample`, then run `npm run pages:deploy`. For a Git-connected Pages project, set the build command to `npm run build` and the output directory to `out`.
+Pages deploys automatically when you push to the connected branch. No Wrangler deploy command is needed.
